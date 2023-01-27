@@ -46,7 +46,7 @@ export default class Pricing {
     return `${this.amount} ${this.currency.displayFullCurrency()}`;
   }
 
-  convertPrice(amount, conversionRate) {
+  static convertPrice(amount, conversionRate) {
     this.checkNumber(amount);
     this.checkNumber(conversionRate);
     return amount * conversionRate;
