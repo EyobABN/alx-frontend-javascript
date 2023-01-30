@@ -21,8 +21,9 @@ export default class Building {
     // const missing = Object.getOwnPropertyNames(superProto).find(
     //   (name) => typeof superProto[name] === 'function' && !proto.hasOwnProperty(name)
     // );
-    const missing = Object.prototype.hasOwnProperty.call(superProto, methodName)
-    && !Object.prototype.hasOwnProperty.call(proto, methodName);
+    const missing = proto !== superProto
+      // && Object.prototype.hasOwnProperty.call(superProto, methodName)
+      && !Object.prototype.hasOwnProperty.call(proto, methodName);
     if (missing) throw new Error(`Class extending Building must override ${methodName}`);
   }
 
