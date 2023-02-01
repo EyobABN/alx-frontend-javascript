@@ -1,7 +1,6 @@
 export default function cleanSet(set, startString) {
   if (!(set instanceof Set)) throw new TypeError('first argument must be a Set');
-  if (typeof startString !== 'string') throw new TypeError('first argument must be a string');
-  if (!startString) return '';
+  if (!startString || typeof startString !== 'string') return '';
   let str = '';
   let first = 0;
   for (const element of set) {
