@@ -3,7 +3,8 @@ export function queryAPI(endpointArg) {
   let numberOfQueries;
   if (weakMap.has(endpointArg)) {
     numberOfQueries = weakMap.get(endpointArg);
-    weakMap.set(endpointArg, numberOfQueries + 1);
+    numberOfQueries += 1;
+    weakMap.set(endpointArg, numberOfQueries);
   } else {
     weakMap.set(endpointArg, 1);
   }
