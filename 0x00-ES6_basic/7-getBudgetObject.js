@@ -1,3 +1,1 @@
-export default function getBudgetObject(...args) {
-  return { ...args };
-}
+export default function (income, gdp, capita) { return { income, gdp, capita }; }
