@@ -5,9 +5,9 @@ export default function createIteratorObject(report) {
     [Symbol.iterator]: () => ({
       aE: [...report.allEmployees.engineering, ...report.allEmployees.marketing],
       current: 0,
-      last: 2,
+      last: report.allEmployees.engineering.length + report.allEmployees.marketing.length,
       next() {
-        if (this.current <= this.last) {
+        if (this.current < this.last) {
           return { done: false, value: this.aE[this.current++] };
         }
         return { done: true, value: undefined };
