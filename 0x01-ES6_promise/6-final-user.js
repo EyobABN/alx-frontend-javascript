@@ -7,11 +7,13 @@ function signUpUser(firstName, lastName) {
 }
 
 async function handleProfileSignup(firstName, lastName, fileName) {
-  const promises = [signUpUser(firstName, lastName), uploadPhoto(fileName)];
+  const user = signUpUser(firstName, lastName);
+  const photo = uploadPhoto(fileName);
 
-  return Promise
-    .allSettled(promises)
-    .then((data) => ([data[0], { status: data[1].status, value: data[1].reason.toString() }]));
+  const arr = (await Promise.allSettled([user, photo]))
+    .map((obj) => ({ status: obj.status, value: (obj.status === 'fulfilled' ? obj.value : obj.reason.toString()) }));
+
+  return arr;
 }
 
 export default handleProfileSignup;
