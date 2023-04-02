@@ -8,15 +8,15 @@ export default class Car {
   }
 
   constructor(brand, motor, color) {
-    this.constructor.checkString(brand);
-    this.constructor.checkString(motor);
-    this.constructor.checkString(color);
+    // this.constructor.checkString(brand);
+    // this.constructor.checkString(motor);
+    // this.constructor.checkString(color);
     this._brand = brand;
     this._motor = motor;
     this._color = color;
   }
 
-  static cloneCar() {
-    return Object.getOwnPropertySymbols();
+  cloneCar() {
+    return new this.constructor();
   }
 }
