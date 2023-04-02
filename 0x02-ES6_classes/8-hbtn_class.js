@@ -29,11 +29,11 @@ export default class HolbertonClass {
     return this._location;
   }
 
-  // Number() {
-  //   return this.size();
-  // }
+  valueOf() {
+    return this.size;
+  }
 
-  // String() {
-  //   return this.location();
-  // }
+  toString() {
+    return this.location;
+  }
 }
